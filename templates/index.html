@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Disease Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f1c3d8, #87e9d7); /* Gradient background */
+      font-family: 'Arimo', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .form-container {
+      background: #fff;
+      padding: 20px;
+      width: 400px;
+      margin: 50px auto;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    form {
+      display: grid;
+      grid-gap: 10px;
+    }
+    label {
+      color: #555;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Heart Disease Prediction</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age" required="required" />
+
+      <label for="sex">Sex:</label>
+      <input type="text" id="sex" name="sex" required="required" />
+
+      <label for="cp">Chest Pain Type:</label>
+      <input type="text" id="cp" name="cp" required="required" />
+
+      <label for="trestbps">Resting Blood Pressure:</label>
+      <input type="text" id="trestbps" name="trestbps" required="required" />
+
+      <label for="chol">Cholesterol:</label>
+      <input type="text" id="chol" name="chol" required="required" />
+
+      <label for="fbs">Fasting Blood Sugar:</label>
+      <input type="text" id="fbs" name="fbs" required="required" />
+
+      <label for="restecg">Resting ECG:</label>
+      <input type="text" id="restecg" name="restecg" required="required" />
+
+      <label for="thalach">Max Heart Rate:</label>
+      <input type="text" id="thalach" name="thalach" required="required" />
+
+      <label for="exang">Exercise Induced Angina:</label>
+      <input type="text" id="exang" name="exang" required="required" />
+
+      <label for="oldpeak">ST Depression:</label>
+      <input type="text" id="oldpeak" name="oldpeak" required="required" />
+
+      <label for="slope">Slope of ST Segment:</label>
+      <input type="text" id="slope" name="slope" required="required" />
+
+      <label for="ca">Number of Major Vessels:</label>
+      <input type="text" id="ca" name="ca" required="required" />
+
+      <label for="thal">Thalassemia:</label>
+      <input type="text" id="thal" name="thal" required="required" />
+
+      <button type="submit">Predict</button>
+    </form>
+    <br>
+    <br>
+    {{ prediction_text }}
+  </div>
+</body>
+</html>
